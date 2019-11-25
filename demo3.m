@@ -91,7 +91,7 @@ escapeKey = KbName('ESCAPE');
 % stimulusPresentTime of catch will not be used
 
 typeList = {'visual', 'auditory', 'visuaditory', 'v-catch', 'a-catch', 'va-catch'};
-shuffler = Shuffle(repmat([[1 2 3 4] [1 2 3 5] [1 2 3 6] [1 2 3]], 1, 20));
+shuffler = Shuffle(repmat([[1 2 3 4] [1 2 3 5] [1 2 3 6] [1 2 3]], 1, baseSettings.numTrials / 20));
 stimulusPresentTime = 2 * rand(1, baseSettings.numTrials);
 
 taskSet = [shuffler; stimulusPresentTime];
@@ -185,7 +185,7 @@ for trial = 1:baseSettings.numTrials
         WaitSecs(1 + SPT);
         
         tStart = GetSecs;
-        for frame = 1:isiTimeFramesHalfSec - 1
+        for frame = 1:isiTimeFrames1Sec - 1
             
             % stimulus: visual
             circle(window);
@@ -216,7 +216,7 @@ for trial = 1:baseSettings.numTrials
         
         tStart = GetSecs;
         beepHigh();
-        for frame = 1:isiTimeFramesHalfSec - 1
+        for frame = 1:isiTimeFrames1Sec - 1
             
             % stimulus: auditory
             
@@ -246,7 +246,7 @@ for trial = 1:baseSettings.numTrials
         
         tStart = GetSecs;
         beepHigh();
-        for frame = 1:isiTimeFramesHalfSec - 1
+        for frame = 1:isiTimeFrames1Sec - 1
             
             % stimulus: visuauditory
             circle(window);
